@@ -1,4 +1,5 @@
 Download https://github.com/mozilla/geckodriver/releases, extract where you want it and make sure the folder you put it in is in your **path**.
+You need to have Firefox installed and install modules in requirements.txt. Ex. `python3 -m pip install -r requirements.txt`.
 
 Two ways to run the script:
 1. From `corr.sh`, run as `./corr.sh <course> <kmom> <akronym>`. It will run potatoe, validate and python script.
