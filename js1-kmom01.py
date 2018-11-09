@@ -66,15 +66,20 @@ if len(links) == 4:
     print(bcolors.OKGREEN + "Found all 4 links", bcolors.ENDC)
 else:
     print(bcolors.FAIL + "Missing link!", bcolors.ENDC)
+    print("Är länken fel så det inte valideras? Rätt länk är: http://validator.w3.org/unicorn/check?ucn_uri=referer&ucn_task=conformance")
 
 link = links["unicorn"]
 if link:
     link.click()
-    pass_unicorn = ff.find_element_by_class_name("title")
-    bgc = pass_unicorn.value_of_css_property("background-color")
-    if bgc == "rgb(29, 170, 52)":
-        print(bgc)
-        print(bcolors.OKGREEN + "Unicorn Validates!", bcolors.ENDC)
+    try:
+        pass_unicorn = ff.find_element_by_class_name("title")
+        bgc = pass_unicorn.value_of_css_property("background-color")
+        if bgc == "rgb(29, 170, 52)":
+            print(bgc)
+            print(bcolors.OKGREEN + "Unicorn Validates!", bcolors.ENDC)
+    except exceptions.NoSuchElementException:
+        print(bcolors.FAIL + "Something wrong with unicorn!", bcolors.ENDC)
+
     sleep(2)
     ff.execute_script("window.history.go(-1)")
 
