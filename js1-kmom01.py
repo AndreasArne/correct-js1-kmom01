@@ -61,11 +61,14 @@ ff.get(SANDBOX)
 sleep(2)
 
 links = ff.find_elements_by_tag_name("a")
-links = find_links(("unicorn", "jsfiddle", "codepen", "validator.w3.org/check", "jigsaw.w3"), links)
+links_to_find = ("unicorn", "jsfiddle", "codepen", "validator.w3.org/check", "jigsaw.w3")
+links = find_links(links_to_find, links)
 if len(links) == 4:
     print(bcolors.OKGREEN + "Found all 4 links", bcolors.ENDC)
 else:
     print(bcolors.FAIL + "Missing link!", bcolors.ENDC)
+    print("Following links shoud exist: ", links_to_find)
+    print("JSfiddle or codepen, both isn't needed.")
     print("Är länken fel så det inte valideras? Rätt länk är: http://validator.w3.org/unicorn/check?ucn_uri=referer&ucn_task=conformance")
 
 link = links["unicorn"]
