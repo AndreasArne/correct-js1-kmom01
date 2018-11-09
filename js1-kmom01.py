@@ -1,4 +1,5 @@
 #! /usr/bin/python3
+# -*- coding: utf-8 -*-
 """
 Correct javascript1 kmom01 with selenium
 """
@@ -75,13 +76,15 @@ link = links["unicorn"]
 if link:
     link.click()
     try:
-        pass_unicorn = ff.find_element_by_class_name("title")
-        bgc = pass_unicorn.value_of_css_property("background-color")
-        if bgc == "rgb(29, 170, 52)":
-            print(bgc)
-            print(bcolors.OKGREEN + "Unicorn Validates!", bcolors.ENDC)
+        pass_unicorn = ff.find_element_by_class_name("invalid")
+        # bgc = pass_unicorn.value_of_css_property("background-color")
+        # if bgc == "rgb(29, 170, 52)":
+            # print(bgc)
+        # else:
+        sleep(4)
+        print(bcolors.FAIL + "Unicorn does not Validate!", bcolors.ENDC)
     except exceptions.NoSuchElementException:
-        print(bcolors.FAIL + "Something wrong with unicorn!", bcolors.ENDC)
+        print(bcolors.OKGREEN + "Unicorn Validates!", bcolors.ENDC)
 
     sleep(2)
     ff.execute_script("window.history.go(-1)")
