@@ -112,10 +112,13 @@ ff.get(REDOVISA + "om.html")
 sleep(1.5)
 if "github.com" in ff.page_source or "Github.com" in ff.page_source:
     print(bcolors.OKGREEN, "Has github link", bcolors.ENDC)
-    links = ff.find_elements_by_tag_name("a")
-    links = find_links(("github", "Github", "GitHub"), links)
-    key = [k for k in links.keys()][0]
-    links[key].click()
-    sleep(1.5)
+    try:
+        links = ff.find_elements_by_tag_name("a")
+        links = find_links(("github", "Github", "GitHub"), links)
+        key = [k for k in links.keys()][0]
+        links[key].click()
+        sleep(1)
+    except exceptions.NoSuchElementException:
+        print(bcolors.OKBLUE, "Github is not a clickable link", bcolors.ENDC)
 
 ff.quit()
