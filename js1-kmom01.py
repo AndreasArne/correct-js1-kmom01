@@ -98,7 +98,8 @@ def check_fiddle(ff, links):
             link = links["codepen"]
         except:
             link = False
-            result.jsfiddle += "Du har ingen länk till jsfiddle/codepen. "
+            print(bcolors.ERROR, "Missing jsfiddle/codepen link!", bcolors.ENDC)
+            result.jsfiddle = "Du har ingen länk till jsfiddle/codepen. "
     if link:
         ff.get(link)
         sleep(2)
