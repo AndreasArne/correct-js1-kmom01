@@ -67,7 +67,7 @@ def check_unicorn(ff, links):
             print(bcolors.FAIL + "Unicorn does not Validate!", bcolors.ENDC)
         except exceptions.NoSuchElementException:
             try:
-                pass_unicorn = ff.find_element_by_class_name("invalid")
+                pass_unicorn = ff.find_element_by_class_name("valid")
                 print(bcolors.OKGREEN + "Unicorn Validates!", bcolors.ENDC)
             except exceptions.NoSuchElementException:
                 print(bcolors.WARNING, "Länken till unicorn är troligen fel. Inget validerades, rätt länk är: http://validator.w3.org/unicorn/check?ucn_uri=referer&ucn_task=conformance")
@@ -114,7 +114,7 @@ def check_redovisa(ff):
     ff.get(REDOVISA + "om.html")
     sleep(1.5)
     if "github.com" in ff.page_source or "Github.com" in ff.page_source:
-        print(bcolors.OKGREEN, "Has github link", bcolors.ENDC)
+        print(bcolors.OKGREEN +"Has github link", bcolors.ENDC)
         try:
             links = ff.find_elements_by_tag_name("a")
             links = find_links(("github", "Github", "GitHub"), links)
