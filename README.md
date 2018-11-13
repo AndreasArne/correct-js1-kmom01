@@ -6,6 +6,7 @@ What it does
 4. If a jsfiddle or codepen link was found goes the the site.
 5. Visits the students me.html/redovisning.html/om.html pages.
 6. Looks for github link in om.html and goes clicks the link.
+7. Copies a summary to clipboard
 
 Install instructions
 =====================
