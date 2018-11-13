@@ -86,7 +86,7 @@ def check_unicorn(ff, links):
         ff.execute_script("window.history.go(-1)")
     else:
             print(bcolors.FAIL, "Missing unicorn link!", bcolors.ENDC)
-            result.unicorn = "Du har ingen länk till Unicorn, det ska vara http://validator.w3.org/unicorn/check?ucn_uri=referer&ucn_task=conformance."
+            result.unicorn = "Du har ingen länk till Unicorn i din sandbox, det ska vara http://validator.w3.org/unicorn/check?ucn_uri=referer&ucn_task=conformance, för att kolla så den validerar."
 
 
 
