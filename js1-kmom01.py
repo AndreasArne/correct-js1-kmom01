@@ -64,7 +64,7 @@ def check_lab(ff):
             print(bcolors.FAIL, "Lab is not done!", bcolors.ENDC)
 
 def check_unicorn(ff, links):
-    
+
     if "unicorn" in links:
         link = links["unicorn"]
         link.click()
@@ -98,7 +98,7 @@ def check_fiddle(ff, links):
             link = links["codepen"]
         except:
             link = False
-            print(bcolors.ERROR, "Missing jsfiddle/codepen link!", bcolors.ENDC)
+            print(bcolors.FAIL, "Missing jsfiddle/codepen link!", bcolors.ENDC)
             result.jsfiddle = "Du har ingen länk till jsfiddle/codepen. "
     if link:
         ff.get(link)
